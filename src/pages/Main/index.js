@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	Container,
 	Content,
@@ -7,8 +7,10 @@ import {
 	CardContent,
 	CardFooter,
 	Title,
-	Description,
-	Annotation
+	Balance,
+	HiddenContent,
+	Annotation,
+	ButtonShowBalance
 } from './styles';
 
 import Tabs from '~/components/Tabs'
@@ -20,7 +22,7 @@ import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 
 export default function Main() {
-	let offset = 0;
+	const [showBalance, setShowBalance] = useState(false);
 	//melhor que state porque atualiza milhares de vezes sem causar perda de desempenho do app ( mais fluido )
 	const translateY = new Animated.Value(0);
 	const animatedEvent = new Animated.Event(
@@ -34,6 +36,8 @@ export default function Main() {
 	);
 
 	function onHandlerStateChange(event) {
+		let offset = 0;
+
 		if (event.nativeEvent.oldState === State.ACTIVE) {
 			let opened = false;
 			const { translationY } = event.nativeEvent;
@@ -81,11 +85,13 @@ export default function Main() {
 					}}>
 						<CardHeader>
 							<Icon name="attach-money" size={28} color="#666" />
-							<Icon name="visibility-off" size={28} color="#666" />
+							<ButtonShowBalance onPress={() => { setShowBalance(!showBalance) }}>
+								<Icon name={showBalance ? 'visibility' : 'visibility-off'} size={28} color="#666" />
+							</ButtonShowBalance>
 						</CardHeader>
 						<CardContent>
 							<Title>Saldo disponível</Title>
-							<Description>R$ 197.611,65</Description>
+							{showBalance ? <Balance>R$ 197.611,65</Balance> : <HiddenContent></HiddenContent>}
 						</CardContent>
 						<CardFooter>
 							<Annotation>

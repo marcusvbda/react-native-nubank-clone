@@ -51,7 +51,7 @@ export const Title = styled.Text`
     color: #999;
 `;
 
-export const Description = styled.Text`
+export const Balance = styled.Text`
     font-size: 32px;
     margin-top: 3px;
     color: #333;
@@ -66,4 +66,12 @@ export const CardFooter = styled.View`
 export const Annotation = styled.Text`
     font-size: 12px;
     color: #333;
+`;
+
+export const ButtonShowBalance = styled.TouchableOpacity``;
+
+export const HiddenContent = styled.View`
+    height : 45px;
+    width : 100%;
+    background : #e5e5e5;
 `;
