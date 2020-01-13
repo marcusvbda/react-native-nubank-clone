@@ -271,4 +271,14 @@ import no mainActivity.java
 +      }
 +    };
 +  }
+
+npm install react-native-vector-icons  --save
+
+react-native link react-native-vector-icons
+
+npm install react-native-iphone-x-helper --save
+
+npm install react-native-svg --save
+react-native link react-native-svg
+npm install react-native-qrcode-svg --save
 ```
