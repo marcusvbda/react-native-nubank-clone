@@ -21,7 +21,8 @@ import { Animated } from "react-native";
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 
-export default function Main() {
+export default function Main({ navigation }) {
+	// navigation.navigate("Splash")
 	const [showBalance, setShowBalance] = useState(false);
 	//melhor que state porque atualiza milhares de vezes sem causar perda de desempenho do app ( mais fluido )
 	const translateY = new Animated.Value(0);

@@ -24,4 +24,5 @@ npm install react-native-iphone-x-helper --save
 npm install react-native-svg --save
 react-native link react-native-svg
 npm install react-native-qrcode-svg --save
+npm install @react-native-community/async-storage --save
 ```
